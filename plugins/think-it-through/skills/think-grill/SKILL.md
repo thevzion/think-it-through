@@ -5,7 +5,7 @@ description: Stress-test an idea, plan, or decision through rigorous one-questio
 
 # Think Grill
 
-Default scope: the current axis or the current specific object being tested.
+Default scope: the current axis or current specific object being tested.
 
 - Use the full relevant conversation, supplied context, and available evidence, not only recent messages.
 - Resolve discoverable facts from available artifacts before asking the user.
@@ -15,6 +15,6 @@ Default scope: the current axis or the current specific object being tested.
 - Push vague answers toward evidence, examples, tradeoffs, or falsifiable claims.
 - Mark each explored branch as holding, uncertain, or broken.
 
-A pending `think-on-*` selector overrides the default for this move only. Keep the response inside that scope, but surface outside dependencies that materially change it.
+For an explicit invocation, begin with `On: <resolved scope> · Move: think-grill`. Append `As: visual` or `To: brief|plan` only when composed.
 
-Be demanding without becoming hostile. Do not switch into solution mode unless asked. Stop when the important branches are resolved and recap what survived and what remains exposed.
+A pending `think-on-*` selector overrides the default once. Be demanding without hostility; do not switch into solution mode unless asked.

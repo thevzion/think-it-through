@@ -1,6 +1,6 @@
 ---
 name: think-recap
-description: Reconstruct the relevant conversation as a structured map and then a coherent digest organized by topics and axes rather than chronology. Use only when the user invokes think-recap or explicitly asks for a recap or synthesis; never interrupt the conversation with an unsolicited recap.
+description: Reflect the selected conversation as a structured map and coherent digest organized by topics and axes rather than chronology. Use only when the user invokes think-recap or explicitly asks for a recap or synthesis; never interrupt with an unsolicited checkpoint.
 ---
 
 # Think Recap
@@ -9,11 +9,11 @@ Default scope: the current topic.
 
 - Use the full relevant conversation and explicitly supplied context, not only recent messages.
 - Reuse stable human-readable topic and axis labels; show renames or merges when meaning changed.
-- Map first: show the selected topics or axes, their active, paused, resolved, or superseded state, decisions, tensions, and open questions.
+- Map first: show topics or axes, their state, decisions, tensions, and open questions.
 - Digest second: explain the coherent shape of the thinking and the connections that matter.
-- At axis scope, show its branches and evolution; at topic scope, relate its axes; at conversation scope, relate its topics.
-- Compress repetition while preserving distinctions and contradictions that affect the outcome.
+- At axis scope, show its evolution; at topic scope, relate its axes; at conversation scope, relate its topics.
+- Compress repetition while preserving material distinctions and contradictions.
 
-A pending `think-on-*` selector overrides the default for this move only. Keep the response inside that scope, but surface outside dependencies that materially change it.
+For an explicit invocation, begin with `On: <resolved scope> · Move: think-recap`. Append `As: visual` or `To: brief` only when composed.
 
-Treat the result as a checkpoint from available context, not proof of memory across chats. Do not add a proposal, plan, or action list unless the user requests that move.
+A pending `think-on-*` selector overrides the default once. Keep recap conversational: do not persist, plan, propose, or create a new direction unless another operation explicitly requests it.

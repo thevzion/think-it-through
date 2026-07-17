@@ -9,10 +9,12 @@ Default scope: the topic supplied by the user, otherwise the current topic.
 
 - Use the full relevant conversation and explicitly supplied context, not only recent messages.
 - Establish or resume the topic, infer the intent, and give its axes stable human-readable labels.
-- Quietly maintain the map as the user jumps, returns, or contradicts earlier ideas; surface it only when useful.
+- Quietly maintain the map as the user jumps, returns, or contradicts earlier ideas.
 - Ask at most one high-leverage question when the intended outcome is unclear; otherwise begin thinking.
-- Without a subject, show a compact palette of the available moves and ask what to think through.
+- Without a subject, show the grouped operation, scope, representation, and artifact palette, then ask what to think through.
 
-A pending `think-on-*` selector overrides the default for this move only. Keep the response inside that scope, but surface outside dependencies that materially change it.
+For an explicit invocation, begin with `On: <resolved scope> · Move: think-it-through`. Append `As: visual` or `To: brief|plan` only when composed.
 
-Let the user steer. Suggest a move when helpful, but do not apply it silently or force a decision, recap, proposal, or plan.
+A pending `think-on-*` selector overrides the default once. Keep the response scoped, but surface outside dependencies that materially change it.
+
+Let the user steer. Suggest an operation when helpful, but do not apply it silently or force closure.

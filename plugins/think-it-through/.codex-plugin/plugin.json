@@ -1,7 +1,7 @@
 {
   "name": "think-it-through",
-  "version": "0.2.0",
-  "description": "A lightweight methodology for thinking through complex subjects while an AI keeps the conversation map.",
+  "version": "0.3.0",
+  "description": "A lightweight system for extracting, mapping, and advancing complex thought with AI, then projecting it into briefs and plans.",
   "author": {
     "name": "thevzion",
     "url": "https://github.com/thevzion"
@@ -12,6 +12,8 @@
   "keywords": [
     "brainstorming",
     "conversation",
+    "artifacts",
+    "knowledge",
     "methodology",
     "thinking",
     "decision-making",
@@ -21,14 +23,15 @@
   "interface": {
     "displayName": "Think It Through",
     "shortDescription": "Think freely. The agent keeps the map.",
-    "longDescription": "Brainstorm and work through complex subjects while the agent quietly maps topics, axes, tensions, and decisions.",
+    "longDescription": "Extract, map, and advance complex thought while the agent keeps the conversation coherent, then project it into reusable briefs and plans.",
     "developerName": "thevzion",
     "category": "Productivity",
     "capabilities": [],
     "defaultPrompt": [
       "$think-it-through:think-it-through Help me unpack a complex subject.",
-      "$think-it-through:think-recap Map and digest this conversation.",
-      "$think-it-through:think-grill Stress-test the current direction."
+      "$think-it-through:think-distill Clarify this thought, then respond.",
+      "$think-it-through:think-to-brief Turn this conversation into a reusable brief.",
+      "$think-it-through:think-to-plan Turn the accepted direction into an execution plan."
     ]
   }
 }

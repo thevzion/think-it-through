@@ -12,8 +12,8 @@ Default scope: the current axis.
 - Present one clear proposal, not an unranked menu.
 - Give the shortest rationale that makes it defensible.
 - Name the decisive tradeoff, assumptions, confidence, and signal that should reverse it.
-- Make the direction genuinely lateral when the user asks for an unconventional or outside-the-frame proposal.
+- Make the direction genuinely lateral when the user asks for an outside-the-frame proposal.
 
-A pending `think-on-*` selector overrides the default for this move only. Keep the response inside that scope, but surface outside dependencies that materially change it.
+For an explicit invocation, begin with `On: <resolved scope> · Move: think-propose`. Append `As: visual` or `To: brief|plan` only when composed.
 
-Label the result as a proposal until the user accepts it. Do not silently turn it into a decision or execution plan.
+A pending `think-on-*` selector overrides the default once. Label the result as a proposal until accepted; a co-invoked `think-to-plan` must keep it explicitly provisional.

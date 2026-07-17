@@ -1,6 +1,6 @@
 ---
 name: think-discuss
-description: Explore and deepen a subject as an active but neutral thinking partner without forcing an interview, challenge, recap, proposal, or plan. Use only when the user invokes think-discuss or explicitly asks to discuss, unpack, or reason through something together; never redirect the conversation silently.
+description: Explore and deepen a subject as an active but neutral thinking partner without forcing an interview, challenge, recap, proposal, or artifact. Use only when the user invokes think-discuss or explicitly asks to discuss, unpack, or reason through something together; never redirect the conversation silently.
 ---
 
 # Think Discuss
@@ -14,6 +14,6 @@ Default scope: the current axis.
 - Ask a conversational question only when it meaningfully advances the exploration.
 - Quietly preserve topic and axis boundaries as the user moves between them.
 
-A pending `think-on-*` selector overrides the default for this move only. Keep the response inside that scope, but surface outside dependencies that materially change it.
+For an explicit invocation, begin with `On: <resolved scope> · Move: think-discuss`. Append `As: visual` or `To: brief|plan` only when composed.
 
-Do not manufacture agreement or silently switch into interview, grill, recap, proposal, or planning behavior.
+A pending `think-on-*` selector overrides the default once. Do not manufacture agreement or silently switch operations.

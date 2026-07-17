@@ -14,6 +14,6 @@ Default scope: the current result or axis.
 - Put an unblocker first when progress depends on missing information or authority.
 - Keep every action small enough to begin now and specific enough to verify.
 
-A pending `think-on-*` selector overrides the default for this move only. Keep the response inside that scope, but surface outside dependencies that materially change it.
+For an explicit invocation, begin with `On: <resolved scope> · Move: think-next`. Append `As: visual` or `To: brief|plan` only when composed.
 
-Do not repeat the analysis, produce a full roadmap, or execute the actions. Use `think-plan` when a complete plan is needed.
+A pending `think-on-*` selector overrides the default once. Do not produce a complete execution plan or perform the actions; use `think-to-plan` for the plan artifact.
