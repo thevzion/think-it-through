@@ -4,23 +4,17 @@
 
 A lightweight command deck for developing complex ideas with AI.
 
-Talk normally. Play a card when you want the agent to clarify, explore, challenge, recover, or preserve the thought.
+Start with the thought. Play a card when you want the agent to clarify, explore, challenge, recover, or preserve it.
 
 Each command invokes a self-describing card: a reusable contract for the agent's focus, job, and result.
 
 ## Why commands
 
-Ideas can arrive faster than you can package them. Attention jumps between threads, and batches of questions break the flow. For some people with ADHD, stopping to reformat a thought creates friction.
+Ideas can arrive faster than you can package them. Attention jumps between branches, and batches of questions break the flow. For some people with ADHD, stopping to reformat a thought creates friction.
 
-You mix the thought with instructions:
+State the thought as it arrives. Each card gives the agent one clear job and a useful default. Spend less attention instructing the agent and more attention developing the thought.
 
-> This could be a method, a set of helpers, or a shared protocol. Separate the ideas, preserve their differences, connect them, then respond.
-
-You state the thought, then direct the agent.
-
-Each card is a reusable conversation helper with one clear job and a useful default. Spend less attention instructing the agent and more attention developing the thought.
-
-Without a card, the agent responds normally.
+Without a card, the agent responds.
 
 ## See it once
 
@@ -46,7 +40,7 @@ Lead with the helpers. Introduce the protocol after the first example.
 ```
 
 ```text
-Talk normally
+Talk
 → play one card
 → repeat or switch cards
 → build a combo when more control becomes useful
@@ -70,22 +64,20 @@ flowchart LR
     N --> H
 ```
 
-The protocol gives every card the same concepts:
+Cards share four concepts:
 
-- `Context` contains the full relevant conversation and supplied material.
-- `Focus` selects what a combo works on without discarding useful context.
-- `Conversation → Topics → Axes` supplies navigation when a card needs it.
-- `SELECTOR? → JOB* → OUTPUT? → MODIFIER*` is the combo order.
+- `Context`: the relevant conversation and supplied material.
+- `Focus`: what a combo works on without discarding useful context.
+- `Conversation → Topics → Axes`: the canonical navigation model, reconstructed as context allows.
+- `SELECTOR? → JOB* → OUTPUT? → MODIFIER*`: combo order.
 
-The protocol applies when you use Think It Through or play a card. No initialization is required.
+Think It Through controls how the agent works with the thought next. Your method, domain skills, and templates control the substance, standards, and artifact structure.
 
-### Optional protocol initialization
-
-Play [`/think-it-through`](plugins/think-it-through/skills/think-it-through/SKILL.md) to initialize the protocol on the available conversation. Alone, it confirms context and focus. With cards, it stays silent.
+Any card loads the protocol. Use [`/think-it-through`](plugins/think-it-through/skills/think-it-through/SKILL.md) alone to initialize it on the available conversation.
 
 ## Start with six cards
 
-I recommend these six starting points from my conversations. They remain open to revision.
+I extracted these six cards from my conversations and recommend them first: clarify, explore, understand, challenge, recover, and choose. Treat them as a starting point. Use will change the selection.
 
 ### 🧪 [`/think-distill`](plugins/think-it-through/skills/think-distill/SKILL.md)
 
@@ -114,13 +106,13 @@ An open decision needs direction. Current question. `evaluate → choose → exp
 ## Keep, resume, or act
 
 ```text
-latest message         → DISTILL → clear threads
+latest message         → DISTILL → clear thoughts
 available conversation → RECAP   → navigable map
 conversation or result → BRIEF   → portable checkpoint
 accepted direction     → PLAN    → execution plan
 ```
 
-Cards reconstruct this navigation model when they need it:
+Cards share one navigation model:
 
 ```text
 Conversation
@@ -132,9 +124,17 @@ Conversation
         └── open questions
 ```
 
-Axes use short labels and can be active, paused, resolved, or replaced. `/think-recap` displays the map. Selectors navigate it without requiring a prior recap. `/think-to-brief` preserves a snapshot; `/think-to-plan` creates operational structure without authorizing execution.
+```text
+Conversation → Topics → Axes
+              ↓
+cards recover and transform the selected material
+              ↓
+domain-native response, brief, or plan
+```
 
-A new session resumes only from a brief or other context you provide. Think It Through does not promise hidden memory or synchronization.
+Short labels mark axes as active, paused, resolved, or replaced. `/think-recap` displays the map; selectors navigate it. The map can use only available context and checkpoints you provide.
+
+Traces stay in chat. A brief preserves a portable snapshot in the subject's language. A plan follows project conventions and never authorizes execution. A new session resumes from context you supply.
 
 ## Install
 
@@ -160,9 +160,9 @@ claude plugin install think-it-through@think-it-through --scope user
 
 ## Build a combo
 
-Type a command to play one card. Combine commands to play a combo.
+Type a command to play a card. Combine commands to play a combo.
 
-Each card has a default:
+Cards have defaults:
 
 ```text
 /think-recap
@@ -171,7 +171,7 @@ Each card has a default:
 └── applies by default
 ```
 
-A selector changes the focus for one combo:
+A selector overrides one combo:
 
 ```text
 /think-on-axis "Artifacts" + /think-recap
@@ -180,12 +180,11 @@ A selector changes the focus for one combo:
 └── selector changed the focus
 ```
 
-Defaults resolve omitted information without playing hidden cards. `/think-recap` matches `/think-on-conversation + /think-recap`. Standalone `/think-to-brief` does too, unless a job supplies its result.
+Defaults play no hidden cards. `/think-recap` equals `/think-on-conversation + /think-recap`. Standalone `/think-to-brief` uses the same focus unless a job supplies its result.
 
 ```text
 Intent
-“On Positioning, clarify the discussion, propose a direction,
-create a brief, and add a diagram.”
+“For Positioning, distill, propose, brief, and diagram.”
 
 Commands
 /think-on-topic "Positioning"
@@ -199,13 +198,13 @@ Resolved trace
 └── focus              └── job      └── job       └── artifact └── modifier
 ```
 
-Jobs pass results left to right. A selector chooses the focus, an output creates an artifact, and modifiers represent the same final result. Conflicts require clarification.
+Jobs pass results left to right. A selector sets focus, an output creates an artifact, and modifiers format the final result. Conflicts require clarification.
 
-For technical readers, a combo acts like a semantic query over a generative engine: the operation is explicit while the content remains generative.
+A combo acts like a semantic query over a generative engine: it fixes the operation while the engine generates the content.
 
-## The deck
+## The current deck
 
-The protocol composes 14 cards.
+These 14 cards form my current working deck. Each began as a repeated instruction. Use will decide which cards remain, change, merge, or leave.
 
 ### Job cards
 
@@ -243,20 +242,17 @@ The protocol composes 14 cards.
 
 ## Use it with the way you already work
 
-Think It Through controls the next response within a personal practice, team method, research workflow, creative process, or engineering system.
+Your practice can stay loose or strict. Its methods, domain skills, templates, rules, and tools govern the work itself. The deck controls the agent's next conversational operation.
 
-Combine cards with domain skills, templates, rules, and tools. Examples include [Superpowers](https://github.com/obra/superpowers), [Ponytail](https://github.com/DietrichGebert/ponytail), [Stop Slop](https://github.com/hardikpandya/stop-slop), [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin), and [Compound Knowledge](https://github.com/EveryInc/compound-knowledge-plugin).
+Pair it with personal, creative, scientific, team, or technical practices, including [Superpowers](https://github.com/obra/superpowers), [Ponytail](https://github.com/DietrichGebert/ponytail), [Stop Slop](https://github.com/hardikpandya/stop-slop), [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin), and [Compound Knowledge](https://github.com/EveryInc/compound-knowledge-plugin).
 
-These are examples, not required integrations or an exhaustive list.
+## Build your own card
 
-## Make a card from something you keep repeating
-
-`/think-distill` began as: “Separate these thoughts, clarify each, show supported connections, then respond.”
+`/think-distill` came from: “Separate these thoughts, clarify each, show supported connections, then respond.”
 
 ```text
 repeated instruction
-→ define one job and its useful default
-→ define result and limits
+→ define job, default, result, and limits
 → test across subjects
 → keep, revise, merge, or remove
 ```
@@ -266,10 +262,12 @@ Context → Play when → Works on by default → Job → Result
 → Stays in play → Limits → Combines with → Flow → Format
 ```
 
-Keep specialized cards outside the shared deck until they recur across subjects and produce a distinct result. [Open an issue](https://github.com/thevzion/think-it-through/issues) for obstructive defaults, overlaps, or missing instructions.
+Cards join the shared deck after recurring across subjects with a distinct result. Specialized cards can remain personal or domain-specific.
+
+Which instruction do you repeat often enough to turn into a card? [Open an issue](https://github.com/thevzion/think-it-through/issues) to share it, challenge a default, report an overlap, or name a missing job.
 
 ## Origin and license
 
-Grill Me supplied the seed: a short name for a reusable response contract. Think It Through extends that pattern into a command deck for complex conversations.
+Grill Me supplied the first card. I extracted the others from my conversations. Think It Through turns that pattern into a protocol anyone can use to build a deck.
 
 License: [MIT](LICENSE).

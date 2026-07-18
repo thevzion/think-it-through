@@ -11,7 +11,8 @@ Treat this skill as the protocol for the deck, not as a card or job.
 
 - **Context:** Use the full relevant conversation and explicitly supplied material, including briefs or other checkpoints.
 - **Focus:** Resolve the part the combo works on. Keep relevant context outside that focus available for reasoning.
-- **Navigation:** Reconstruct `Conversation → Topics → Axes` when navigation is needed. Use short human labels. Topics hold major subjects; axes hold stable branches and may be active, paused, resolved, or replaced.
+- **Navigation:** Use `Conversation → Topics → Axes` as the canonical model whenever the protocol is active. Reconstruct it only as needed and as the available context allows; keep it silent unless a card exposes it. Use short human labels. Topics hold major subjects; axes hold stable branches and may be active, paused, resolved, or replaced.
+- **Method:** Follow explicit user instructions first. Let specific methods, domain skills, project conventions, and templates govern substance, criteria, and artifact structure. Use this protocol for conversational focus, card execution, and display.
 - **State:** Use only context still available or supplied. Do not claim hidden state, synchronization, or memory across sessions.
 
 ## Card model
@@ -45,6 +46,7 @@ SELECTOR? → JOB* → OUTPUT? → MODIFIER*
 - Without a played card, respond as usual.
 - Run only jobs the user named or requested explicitly.
 - Show one compact trace for the complete combo. Keep natural conversation silent.
+- Treat traces and protocol vocabulary as control metadata. Keep them outside artifact bodies unless Think It Through is the subject or the user requests them.
 - When loaded with cards, add no protocol trace or response of your own.
 
 ## Flow
@@ -65,4 +67,4 @@ When invoked alone, respond only:
 
 `> 🧩 **THINK IT THROUGH** · Protocol initialized · Context: available conversation · Focus: <resolved focus>`
 
-Use `multiple active threads` when no single focus is clear. Do not ask the user to choose.
+Use `multiple active axes` for several branches of one topic and `multiple active topics` for several major subjects. Do not ask the user to choose an artificial single focus.
