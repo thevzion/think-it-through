@@ -1,6 +1,6 @@
 # Think It Through
 
-**Write the thought. Command the next move.**
+**Think freely. The agent follows your lead.**
 
 Develop complex ideas with AI without losing control of the conversation.
 
@@ -51,7 +51,7 @@ Fast thoughts, shifting attention, and question batches can create friction, inc
 
 ## How it works
 
-You bring ideas, intent, taste, and judgment. A command names one operation and target. The agent adapts its next response, giving you new material to accept, reject, combine, or reframe.
+You bring ideas, intent, taste, and judgment. A command names one operation. The agent follows your lead as it connects, reconstructs, or proposes. You decide what to keep.
 
 ```mermaid
 flowchart LR
@@ -65,7 +65,7 @@ The command governs one operation. You control the wider process and choose the 
 
 ## Start with six commands
 
-These six commands open a 15-card starter deck. Reuse one-shot commands as needed. `interview` and `grill` continue after one invocation.
+These six cards are the commands I currently consider generic enough to recommend first. They grew from my own conversations and remain open to revision. Reuse one-shot commands. `interview` and `grill` continue after one invocation.
 
 ### 🧪 [`/think-distill`](plugins/think-it-through/skills/think-distill/SKILL.md)
 
@@ -198,6 +198,8 @@ Selectors never remove evidence. `interview` and `grill` retain their target unt
 
 ## Full command reference
 
+I use the remaining cards too, but treat them as optional session, scope, representation, and artifact controls rather than candidate fundamentals.
+
 | Command | Default target | Result | Cadence |
 | --- | --- | --- | --- |
 | [🧩 `/think-it-through`](plugins/think-it-through/skills/think-it-through/SKILL.md) | Current focus or supplied subject | Adopted session map | Session activation |
@@ -229,23 +231,32 @@ Think It Through governs one response. Your method can remain loose or impose st
 
 ## Related patterns
 
-[Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin) preserves engineering learnings for later production cycles. [Compound Knowledge](https://github.com/EveryInc/compound-knowledge-plugin) applies the loop to knowledge work. Think It Through applies the related idea to the current turn, session map, and optional artifacts.
+[Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin) preserves engineering learnings between production cycles. [Compound Knowledge](https://github.com/EveryInc/compound-knowledge-plugin) applies compounding to knowledge work. Think It Through focuses on conversations and their artifacts.
 
-## Create a card
+## Evolve the deck
 
-A card is a semantic micro-program for an operation you request often. Add one when an instruction repeats. Merge cards that produce the same job.
+Cards start with an instruction you keep rewriting:
+
+```text
+repeated instruction
+→ define one move
+→ choose a useful default
+→ define result and boundary
+→ test across subjects
+→ keep, revise, merge, or remove
+```
+
+Shared cards recur across subjects, produce distinct results, and compose. Personal, team, and domain cards reuse the grammar elsewhere.
 
 ```text
 When → On (default) → Move → Result → Cadence → Boundary
      → Composition → Flow → Display
 ```
 
-Prose defines intent and limits. A small flow defines branches and stops. `Display` defines response blocks.
+[Open an issue](https://github.com/thevzion/think-it-through/issues) when a default fights your workflow, cards overlap, or a recurring instruction has no name. Feedback helps the maintainer keep the shared deck small.
 
 ## Origin and license
 
 Grill Me supplied the seed: a short name for a reusable response contract. Think It Through extends the pattern across complex conversations.
-
-Human creativity supplies ideas and judgment. Each explicit card has one job and a useful default. Anyone can extend the vocabulary without changing the grammar.
 
 License: [MIT](LICENSE).
