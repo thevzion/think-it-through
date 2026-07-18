@@ -7,7 +7,7 @@ description: Expose the reasoning structure in a result from the same combo or t
 
 **Context:** The full relevant conversation and explicitly supplied material.
 **Use when:** The user needs to inspect how a claim, proposal, decision, or system holds together.
-**Default target:** The final reasoning from the same combo, otherwise the current proposal or decision.
+**Applies to by default:** The final reasoning from the same combo, otherwise the current proposal or decision.
 **Job:** Extract stated claims, evidence, premises, assumptions, inferences, implications, and objections, then map supported links.
 **Result:** An argument map for a claim or a broader reasoning map for a decision or system.
 **Runs for:** One response; does not affect later responses.
@@ -29,6 +29,6 @@ flowchart LR
 
 ## Format
 
-Append `+ 🧠 **REASONING MAP**` to the complete combo trace. Used alone, begin with `> 🎯 **<target>** + 🧠 **REASONING MAP**`.
+Append `+ 🧠 **REASONING MAP**` to the complete combo trace. Used alone, begin with `> 🎯 **<focus>** + 🧠 **REASONING MAP**`.
 
 Use labels that distinguish claims, evidence, assumptions, inferences, and objections.

@@ -7,18 +7,18 @@ description: Turn the full available conversation or a result from the same comb
 
 **Context:** The full relevant conversation and explicitly supplied material.
 **Use when:** The user wants to preserve thinking for reuse in this session, another session, or another tool.
-**Default target:** The full available conversation, unless a combo supplies a selected result.
+**Applies to by default:** The full available conversation, the same focus as `/think-on-conversation` when used alone. A result supplied by a combo takes priority.
 **Job:** Read the selected map or result directly, infer a useful document form and audience, then produce a neutral Thinking Brief.
 **Result:** A portable Markdown checkpoint organized by topics and axes, with purpose, synthesis, decisions, tensions, open questions, and where to resume.
 **Runs for:** One output, with confirmation only when a destination must be inferred or an existing artifact could be overwritten.
 **Limits:** Do not run an implicit recap, invent conclusions, synchronize the checkpoint later, claim cross-session memory, or overwrite a destination without permission.
-**Combines with:** Consume the final job result or its default target. Modifiers apply to the resulting brief. Ask one clarification if another output appears in the combo.
+**Combines with:** Use the final job result or the default focus. Modifiers apply to the resulting brief. Ask one clarification if another output appears in the combo. The default resolves directly; it does not run a hidden selector.
 
 ## Flow
 
 ```mermaid
 flowchart TD
-    A["Final result or default target"] --> B["Build Thinking Brief"]
+    A["Final result or default focus"] --> B["Build Thinking Brief"]
     B --> C{"Destination?"}
     C -->|None| D["Return Markdown inline"]
     C -->|Inferred| E["Show creation preview"]
@@ -34,6 +34,6 @@ Prefer an existing project convention, otherwise portable Markdown. A creation p
 
 ## Format
 
-Add `→ 📄 **BRIEF**` after the final job in the combo trace, or begin with `> 🎯 **<target>** → 📄 **BRIEF**` when used alone. Add modifiers with `+`.
+Add `→ 📄 **BRIEF**` after the final job in the combo trace, or begin with `> 🎯 **<focus>** → 📄 **BRIEF**` when used alone. Add modifiers with `+`.
 
 Show status only while awaiting confirmation or overwrite permission. A later session resumes only when the user supplies the brief or its content.

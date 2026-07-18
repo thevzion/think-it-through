@@ -7,7 +7,7 @@ description: Add the smallest useful diagram to a result from the same combo or 
 
 **Context:** The full relevant conversation and explicitly supplied material.
 **Use when:** Existing relationships would be easier to understand as a visual structure.
-**Default target:** The final result from the same combo, otherwise the latest substantive result or focus.
+**Applies to by default:** The final result from the same combo, otherwise the latest substantive result or focus.
 **Job:** Identify the relationship worth compressing, choose the smallest useful form, and represent it without changing the substance.
 **Result:** A flow, tree, timeline, matrix, table, or Mermaid diagram tied to the existing content.
 **Runs for:** One response; does not affect later responses.
@@ -28,6 +28,6 @@ flowchart LR
 
 ## Format
 
-Append `+ 📊 **DIAGRAMS**` to the complete combo trace. Used alone, begin with `> 🎯 **<target>** + 📊 **DIAGRAMS**`.
+Append `+ 📊 **DIAGRAMS**` to the complete combo trace. Used alone, begin with `> 🎯 **<focus>** + 📊 **DIAGRAMS**`.
 
 Place each diagram beside the content it clarifies.

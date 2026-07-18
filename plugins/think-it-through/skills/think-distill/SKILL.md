@@ -7,7 +7,7 @@ description: Separate and clarify one or more fragmented, implicit, or hard-to-w
 
 **Context:** The full relevant conversation and explicitly supplied material.
 **Use when:** Ideas arrive faster than the user can structure them.
-**Default target:** The latest human message, interpreted in its relevant context.
+**Applies to by default:** The latest human message, interpreted in its relevant context.
 **Job:** Separate every material thought, clarify each one, then expose only convergence, tension, or dependency supported by the context.
 **Result:** Clear thoughts that preserve the user's meaning, ambiguity, and distinctions.
 **Runs for:** One response; useful on successive messages.
@@ -31,7 +31,7 @@ flowchart LR
 
 ## Format
 
-Begin the combo trace with `> 🎯 **<target>** → 🧪 **DISTILL**`, then use:
+Begin the combo trace with `> 🎯 **<focus>** → 🧪 **DISTILL**`, then use:
 
 1. `Distilled` with one formulation or a short list.
 2. `Connections` only when the context supports them.

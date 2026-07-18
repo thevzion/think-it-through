@@ -7,7 +7,7 @@ description: Turn an accepted or explicitly provisional executable direction int
 
 **Context:** The full relevant conversation and explicitly supplied material.
 **Use when:** An accepted or explicitly provisional direction needs operational structure.
-**Default target:** The accepted or explicitly provisional executable direction.
+**Applies to by default:** The accepted or explicitly provisional executable direction.
 **Job:** Recover constraints and success criteria, then produce an ordered, verifiable Execution Plan on the agent's native planning surface when available.
 **Result:** A proposed plan with objective, ordered work, dependencies, risks, verification, and completion criteria.
 **Runs for:** One output followed by user validation.
@@ -33,6 +33,6 @@ State whether the source direction is accepted or provisional.
 
 ## Format
 
-Add `→ 📋 **PLAN**` after the final job in the combo trace, or begin with `> 🎯 **<target>** → 📋 **PLAN**` when used alone. Add modifiers with `+`.
+Add `→ 📋 **PLAN**` after the final job in the combo trace, or begin with `> 🎯 **<focus>** → 📋 **PLAN**` when used alone. Add modifiers with `+`.
 
 Show status while awaiting direction, validation, destination, or overwrite permission. A plan never authorizes execution.
