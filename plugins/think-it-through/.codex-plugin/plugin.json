@@ -1,7 +1,7 @@
 {
   "name": "think-it-through",
-  "version": "0.5.1",
-  "description": "A toolkit for brainstorming and developing ideas with AI through repeatable controls for long, branching conversations.",
+  "version": "0.6.0",
+  "description": "A lightweight command palette for developing ideas with AI while keeping control of long, nonlinear conversations.",
   "author": {
     "name": "thevzion",
     "url": "https://github.com/thevzion"
@@ -12,7 +12,8 @@
   "keywords": [
     "brainstorming",
     "conversation",
-    "conversation-kit",
+    "command-palette",
+    "conversation-commands",
     "creative-thinking",
     "creativity",
     "ideation",
@@ -31,8 +32,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Think It Through",
-    "shortDescription": "Think out loud. Keep the threads connected.",
-    "longDescription": "A toolkit for developing complex ideas with AI. Use lightweight, repeatable controls to clarify thoughts, reconnect earlier branches, challenge directions, and preserve results across long conversations.",
+    "shortDescription": "Write the thought. Command the next move.",
+    "longDescription": "Develop ideas with AI without losing control of the conversation. Each human-issued command gives the agent an explicit job and target for the next turn.",
     "developerName": "thevzion",
     "category": "Productivity",
     "capabilities": [],

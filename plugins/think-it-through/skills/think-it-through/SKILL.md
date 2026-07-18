@@ -1,6 +1,6 @@
 ---
 name: think-it-through
-description: Activate or resume a user-led Think It Through session by adopting the full available conversation and maintaining a coherent map of its topics and axes. Use only when the user invokes think-it-through or explicitly asks to adopt a conversation into the method; never activate it silently.
+description: Activate or resume a user-led Think It Through command session by adopting the full available conversation and maintaining a coherent map of its topics and axes. Use only when the user invokes think-it-through or explicitly asks to adopt a conversation into the palette; never activate it silently.
 ---
 
 # Think It Through
@@ -21,4 +21,4 @@ When activated, respond compactly:
 
 `Think It Through active · Adopted: available conversation · Current: <resolved focus>`
 
-A `think-on-*` selector may change one control's target, but never narrows the adopted conversation. The user leads: suggest a control when useful, but never apply one silently. Do not promise memory across conversations.
+A `think-on-*` selector may change one control's target, but never narrows the adopted conversation. The user leads: recommend a command only when asked how to continue, and never apply one silently. Do not promise memory across conversations.
