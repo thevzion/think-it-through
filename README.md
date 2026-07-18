@@ -65,7 +65,9 @@ The command governs one operation. You control the wider process and choose the 
 
 ## Start with six commands
 
-These six cards are the commands I currently consider generic enough to recommend first. They grew from my own conversations and remain open to revision. Reuse one-shot commands. `interview` and `grill` continue after one invocation.
+These are the six commands I currently consider generic enough to recommend first. They grew from my conversations and remain open to revision. `interview` and `grill` continue after one invocation.
+
+Try them in real conversations, then [open an issue](https://github.com/thevzion/think-it-through/issues) with what held up, overlapped, or went missing.
 
 ### 🧪 [`/think-distill`](plugins/think-it-through/skills/think-distill/SKILL.md)
 
@@ -253,7 +255,7 @@ When → On (default) → Move → Result → Cadence → Boundary
      → Composition → Flow → Display
 ```
 
-[Open an issue](https://github.com/thevzion/think-it-through/issues) when a default fights your workflow, cards overlap, or a recurring instruction has no name. Feedback helps the maintainer keep the shared deck small.
+[Open an issue](https://github.com/thevzion/think-it-through/issues) when a default fights your workflow, cards overlap, or a recurring instruction has no card.
 
 ## Origin and license
 
