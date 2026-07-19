@@ -11,6 +11,8 @@ It is built on the
 [Human-Agent Card Protocol](https://github.com/thevzion/human-agent-card-protocol),
 which gives cards shared rules for composition and lifecycle.
 
+![Six blank conversation cards turn branching discussion paths into an organized deck](assets/think-it-through-hero.jpg)
+
 ## The problem
 
 You know what the agent should do next, but expressing it takes another
