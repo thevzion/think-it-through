@@ -6,7 +6,8 @@ description: Separate and clarify one or more fragmented, implicit, or hard-to-w
 # 🧪 Think Distill
 
 **Use when:** Ideas arrive faster than the user can structure them.
-**Default focus:** The latest human message, interpreted in its relevant context.
+**Default binding:** The latest human message, interpreted in its relevant context.
+**Accepts:** A compatible HACP Working Object or the declared default material.
 **Effect:** Separate every material thought, clarify each one, then expose only convergence, tension, or dependency supported by the context.
 **Result:** Clear thoughts that preserve the user's meaning, ambiguity, and distinctions.
 **Duration:** One agent turn. Play it again on successive messages when useful.
@@ -29,7 +30,7 @@ flowchart LR
 
 ## Format
 
-Begin the combo trace with `> 🎯 **<focus>** → 🧪 **DISTILL**`, then use:
+Begin the combo trace with `> 🎯 **<binding>** → 🧪 **DISTILL**`, then use:
 
 1. `Distilled` with one formulation or a short list.
 2. `Connections` only when the context supports them.

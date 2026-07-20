@@ -80,7 +80,7 @@ The next message can continue from clearer material.
 ### Codex
 
 ```bash
-codex plugin marketplace add thevzion/think-it-through
+codex plugin marketplace add control-decks/think-it-through
 codex plugin add think-it-through@think-it-through
 ```
 
@@ -90,7 +90,7 @@ Use `$think-it-through:think-help` or play
 ### Claude Code
 
 ```bash
-claude plugin marketplace add thevzion/think-it-through --scope user
+claude plugin marketplace add control-decks/think-it-through --scope user
 claude plugin install think-it-through@think-it-through --scope user
 ```
 
@@ -164,15 +164,16 @@ build shared understanding.
 
 - Keep writing as usual when you do not need a card.
 - You play each card. The agent does not choose a move for you.
-- Resolve combos from left to right against one focus.
+- Resolve combos from left to right against one Binding.
 - Clear most cards after one agent response.
 - Keep `INTERVIEW` and `GRILL` active until they finish or you stop them.
 - Create briefs and plans when you play their cards.
 
 ## Add control when you need it
 
-The six core cards cover the main thinking loop. Eight more cards let you choose
-the focus, recommend actions, create an artifact, or change its presentation.
+The six core cards cover the main thinking loop. Nine more cards let you choose
+the Binding, recommend actions, explain a result, create an artifact, or change
+its presentation.
 
 `/think-help` explains the deck and gives exact commands without playing a
 card:
@@ -183,8 +184,8 @@ card:
 /think-help "I need to choose a direction"
 ```
 
-Focus cards target a conversation, topic, or axis. Output cards create a brief
-or plan. Modifiers can add a diagram or reasoning map to the same result. For
+Binding cards target a conversation, topic, or axis. Output cards create a brief
+or plan. Presentation cards can add a diagram or reasoning map to the same result. For
 example:
 
 ```text
@@ -198,6 +199,17 @@ example:
 `/think-to-plan` turns an accepted or provisional direction into a plan for
 review. It does not authorize execution.
 
+`/think-explain` can consume the result of any HACP deck. For example:
+
+```text
+$work-this-way:work-implement
++ $think-it-through:think-explain
+```
+
+`IMPLEMENT` returns the observed implementation result. `EXPLAIN` turns that
+Working Object into a concise explanation without printing every intermediate
+step.
+
 ## Under the deck
 
 Think It Through controls the requested shape of an agent response. Your
@@ -205,14 +217,14 @@ methods, project rules, and tools still govern the substance and the available
 actions.
 
 The
-[Human-Agent Card Protocol](https://github.com/thevzion/human-agent-card-protocol)
-defines the shared rules beneath the deck: focus, composition, duration,
-clearing, and visible resolution.
+[Human-Agent Control Protocol](https://github.com/control-decks/human-agent-card-protocol)
+defines the shared rules beneath the deck: Binding, Working Object transfer,
+control state, duration, and visible resolution.
 
 | Layer | Owns |
 | --- | --- |
 | Think It Through | purpose, mental model, cards, and defaults |
-| HACP | card types, order, duration, and clearing |
+| HACP | Binding, object transfer, control state, order, and clearing |
 | Methods and project rules | reasoning and quality constraints |
 | Providers and tools | instruction loading, context, and actions |
 
@@ -222,9 +234,9 @@ clearing, and visible resolution.
 `/think-it-through` initializes the shared deck model. `/think-help` explains
 the deck. Neither is a card.
 
-### Move cards
+### Operation cards
 
-| Card | Play when | Default focus | Result | Duration |
+| Card | Play when | Default binding | Result | Duration |
 | --- | --- | --- | --- | --- |
 | [🧪 Distill](plugins/think-it-through/skills/think-distill/SKILL.md) | Thoughts need structure | Latest human message | Clear thoughts | One agent turn |
 | [💬 Discuss](plugins/think-it-through/skills/think-discuss/SKILL.md) | Exploration should stay open | Current thought | Developed thought | One agent turn |
@@ -234,7 +246,7 @@ the deck. Neither is a card.
 | [🧭 Propose](plugins/think-it-through/skills/think-propose/SKILL.md) | An open question needs direction | Current open decision | One proposal | One agent turn |
 | [⚡ Next](plugins/think-it-through/skills/think-next/SKILL.md) | Action should follow | Latest actionable result | One to three actions | One agent turn |
 
-### Focus cards
+### Binding cards
 
 | Card | Chooses | Duration |
 | --- | --- | --- |
@@ -244,15 +256,16 @@ the deck. Neither is a card.
 
 ### Output cards
 
-| Card | Creates | Default focus |
+| Card | Creates | Default binding |
 | --- | --- | --- |
 | [📄 Brief](plugins/think-it-through/skills/think-to-brief/SKILL.md) | Portable thinking checkpoint | Available conversation |
 | [📋 Plan](plugins/think-it-through/skills/think-to-plan/SKILL.md) | Execution plan for review | Accepted or provisional direction |
 
-### Modifier cards
+### Presentation cards
 
-| Card | Adds | Default focus |
+| Card | Presents | Default binding |
 | --- | --- | --- |
+| [💡 Explain](plugins/think-it-through/skills/think-explain/SKILL.md) | Concise contextual explanation | Current Working Object |
 | [📊 Diagrams](plugins/think-it-through/skills/think-with-diagrams/SKILL.md) | Smallest useful visual | Final or latest useful result |
 | [🧠 Reasoning map](plugins/think-it-through/skills/think-with-reasoning-map/SKILL.md) | Supported reasoning structure | Final reasoning or current decision |
 
@@ -264,22 +277,22 @@ Start with an instruction you repeat:
 
 ```text
 repeated instruction
-→ define one effect and default focus
+→ define one effect and default binding
 → define result, duration, and limits
-→ test across subjects
+→ test positions and cross-deck transfer
 → keep, revise, merge, or remove
 ```
 
 A card contract records:
 
 ```text
-Use when → Default focus → Effect → Result
-→ Duration → Limits → Flow → Format
+Use when → Default binding → Accepts → Effect → Result
+→ Duration → Limits → Format
 ```
 
 A different deck can use the same interaction rules for another purpose and
 mental model. Share an instruction you repeat in a
-[GitHub issue](https://github.com/thevzion/think-it-through/issues).
+[GitHub issue](https://github.com/control-decks/think-it-through/issues).
 
 ## Origin and license
 
