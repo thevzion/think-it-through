@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through"
+  short_description: "Initialize the shared thinking deck"
+  default_prompt: "Use $deck to initialize Think It Through."

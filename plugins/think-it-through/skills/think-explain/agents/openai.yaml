@@ -1,4 +1,0 @@
-interface:
-  display_name: "Explain"
-  short_description: "Explain the current object with precision"
-  default_prompt: "Use $think-explain to explain the current result."

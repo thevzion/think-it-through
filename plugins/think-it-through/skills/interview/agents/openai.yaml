@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · Interview"
+  short_description: "Build understanding one question at a time"
+  default_prompt: "Use $interview to build shared understanding one question at a time."

@@ -2,13 +2,13 @@
   "hacp": "0.3",
   "deck": {
     "id": "think-it-through",
-    "version": "0.11.0",
+    "version": "0.12.0",
     "publisher": "Control Decks"
   },
   "cards": [
     {
       "id": "think-it-through/on-conversation",
-      "command": "think-on-conversation",
+      "command": "on-conversation",
       "kind": "binding",
       "mode": "select",
       "traits": ["semantic"],
@@ -20,7 +20,7 @@
     },
     {
       "id": "think-it-through/on-topic",
-      "command": "think-on-topic",
+      "command": "on-topic",
       "kind": "binding",
       "mode": "select",
       "traits": ["semantic"],
@@ -32,7 +32,7 @@
     },
     {
       "id": "think-it-through/on-axis",
-      "command": "think-on-axis",
+      "command": "on-axis",
       "kind": "binding",
       "mode": "select",
       "traits": ["semantic"],
@@ -44,7 +44,7 @@
     },
     {
       "id": "think-it-through/discuss",
-      "command": "think-discuss",
+      "command": "discuss",
       "kind": "operation",
       "mode": "transform",
       "traits": ["read-only", "semantic"],
@@ -56,7 +56,7 @@
     },
     {
       "id": "think-it-through/distill",
-      "command": "think-distill",
+      "command": "distill",
       "kind": "operation",
       "mode": "transform",
       "traits": ["read-only", "semantic"],
@@ -70,7 +70,7 @@
     },
     {
       "id": "think-it-through/interview",
-      "command": "think-interview",
+      "command": "interview",
       "kind": "operation",
       "mode": "transform",
       "traits": ["read-only", "semantic", "multi-exchange"],
@@ -82,7 +82,7 @@
     },
     {
       "id": "think-it-through/grill",
-      "command": "think-grill",
+      "command": "grill",
       "kind": "operation",
       "mode": "transform",
       "traits": ["read-only", "semantic", "multi-exchange"],
@@ -94,7 +94,7 @@
     },
     {
       "id": "think-it-through/recap",
-      "command": "think-recap",
+      "command": "recap",
       "kind": "operation",
       "mode": "transform",
       "traits": ["read-only", "semantic"],
@@ -106,7 +106,7 @@
     },
     {
       "id": "think-it-through/propose",
-      "command": "think-propose",
+      "command": "propose",
       "kind": "operation",
       "mode": "transform",
       "traits": ["read-only", "semantic"],
@@ -123,7 +123,7 @@
     },
     {
       "id": "think-it-through/next",
-      "command": "think-next",
+      "command": "next",
       "kind": "operation",
       "mode": "transform",
       "traits": ["read-only", "semantic"],
@@ -135,7 +135,7 @@
     },
     {
       "id": "think-it-through/further",
-      "command": "think-further",
+      "command": "further",
       "kind": "operation",
       "mode": "transform",
       "traits": ["read-only", "semantic", "creative-extension"],
@@ -147,7 +147,7 @@
     },
     {
       "id": "think-it-through/explain",
-      "command": "think-explain",
+      "command": "explain",
       "kind": "presentation",
       "mode": "render",
       "traits": ["read-only", "semantic", "cross-deck"],
@@ -161,7 +161,7 @@
     },
     {
       "id": "think-it-through/to-brief",
-      "command": "think-to-brief",
+      "command": "to-brief",
       "kind": "operation",
       "mode": "artifact",
       "traits": ["read-only", "artifact"],
@@ -173,7 +173,7 @@
     },
     {
       "id": "think-it-through/to-plan",
-      "command": "think-to-plan",
+      "command": "to-plan",
       "kind": "operation",
       "mode": "artifact",
       "traits": ["read-only", "artifact"],
@@ -190,7 +190,7 @@
     },
     {
       "id": "think-it-through/with-diagrams",
-      "command": "think-with-diagrams",
+      "command": "with-diagrams",
       "kind": "presentation",
       "mode": "render",
       "traits": ["read-only", "semantic"],
@@ -202,7 +202,7 @@
     },
     {
       "id": "think-it-through/with-reasoning-map",
-      "command": "think-with-reasoning-map",
+      "command": "with-reasoning-map",
       "kind": "presentation",
       "mode": "render",
       "traits": ["read-only", "semantic"],

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · Further"
+  short_description: "Push an idea one grounded leap further"
+  default_prompt: "Use $further to push this idea one grounded leap further."

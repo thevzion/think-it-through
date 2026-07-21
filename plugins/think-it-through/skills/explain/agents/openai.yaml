@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · Explain"
+  short_description: "Explain the current object with precision"
+  default_prompt: "Use $explain to explain the current result."

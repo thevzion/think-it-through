@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · To Plan"
+  short_description: "Create a verifiable plan from a direction"
+  default_prompt: "Use $to-plan to turn this direction into a verifiable plan."

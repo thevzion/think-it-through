@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · Recap"
+  short_description: "Map and synthesize the available conversation"
+  default_prompt: "Use $recap to map and synthesize this conversation."
