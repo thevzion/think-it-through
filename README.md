@@ -2,10 +2,11 @@
 
 **Stop rewriting the same instructions while thinking with AI. Play a card.**
 
-Think It Through is an open-source deck of conversation cards for working
-through ideas with an agent. Keep writing as usual, then play a card when you
-want the next response to clarify, explore, question, challenge, recover, or
-direct your thinking.
+Think It Through is an open-source deck of conversation cards for developing
+ideas with an agent. Keep writing as usual, then play a card when you want the
+next response to clarify, explore, question, challenge, recover, or
+direct your thinking. Each card makes the next move explicit, reducing vague
+responses and steering work across active sessions.
 
 ![Two collaborators prepare to play the Distill card against a hydra of tangled instructions](assets/think-it-through-hero.jpg)
 
@@ -69,8 +70,9 @@ way of working while a protocol stays neutral about the method.
 
 **Response**
 
-Choose which layer people adopt first. Let the other two support it without
-forcing them into the same product.
+The unresolved question is which layer people would adopt first: the method,
+the interface, or the protocol. The other two may support it without belonging
+to the same initial product boundary.
 
 `DISTILL` separated the claims and preserved the unresolved product boundary.
 The next message can continue from clearer material.
@@ -80,7 +82,7 @@ The next message can continue from clearer material.
 ### Codex
 
 ```bash
-codex plugin marketplace add thevzion/think-it-through
+codex plugin marketplace add control-decks/think-it-through
 codex plugin add think-it-through@think-it-through
 ```
 
@@ -90,7 +92,7 @@ Use `$think-it-through:think-help` or play
 ### Claude Code
 
 ```bash
-claude plugin marketplace add thevzion/think-it-through --scope user
+claude plugin marketplace add control-decks/think-it-through --scope user
 claude plugin install think-it-through@think-it-through --scope user
 ```
 
@@ -108,13 +110,25 @@ captures one of them.
 | --- | --- | --- |
 | structure | [🧪 `DISTILL`](plugins/think-it-through/skills/think-distill/SKILL.md) | separate and clarify the thought |
 | room to develop | [💬 `DISCUSS`](plugins/think-it-through/skills/think-discuss/SKILL.md) | explore without forcing a conclusion |
-| missing information | [🔎 `INTERVIEW`](plugins/think-it-through/skills/think-interview/SKILL.md) | ask one focused question at a time |
+| an explanation | [💡 `EXPLAIN`](plugins/think-it-through/skills/think-explain/SKILL.md) | explain without changing the claims or choosing a direction |
 | pressure | [🔥 `GRILL`](plugins/think-it-through/skills/think-grill/SKILL.md) | test one weak branch per exchange |
 | orientation | [🗺️ `RECAP`](plugins/think-it-through/skills/think-recap/SKILL.md) | recover a map and synthesis |
 | a direction | [🧭 `PROPOSE`](plugins/think-it-through/skills/think-propose/SKILL.md) | offer one choice with its tradeoff and risk |
 
 Repeat a card, switch cards, or return to normal conversation as the thought
 changes.
+
+You can play a card without writing another prompt. If a long session has lost
+its shape, send:
+
+```text
+/think-recap
+```
+
+The card uses the conversation as its default Binding. Reusing these
+moves across active sessions cuts prompt writing and context switching. You
+still verify the agent's work; cards control the next move, not its correctness
+or cross-session memory.
 
 ## Combine two cards
 
@@ -164,15 +178,16 @@ build shared understanding.
 
 - Keep writing as usual when you do not need a card.
 - You play each card. The agent does not choose a move for you.
-- Resolve combos from left to right against one focus.
+- Resolve combos from left to right against one Binding.
 - Clear most cards after one agent response.
 - Keep `INTERVIEW` and `GRILL` active until they finish or you stop them.
 - Create briefs and plans when you play their cards.
 
 ## Add control when you need it
 
-The six core cards cover the main thinking loop. Eight more cards let you choose
-the focus, recommend actions, create an artifact, or change its presentation.
+The six-card starter hand covers the main thinking loop. Ten advanced cards
+let you choose the Binding, gather missing information, recommend actions,
+extend an idea, create an artifact, or change its presentation.
 
 `/think-help` explains the deck and gives exact commands without playing a
 card:
@@ -183,8 +198,8 @@ card:
 /think-help "I need to choose a direction"
 ```
 
-Focus cards target a conversation, topic, or axis. Output cards create a brief
-or plan. Modifiers can add a diagram or reasoning map to the same result. For
+Binding cards target a conversation, topic, or axis. Output cards create a brief
+or plan. Presentation cards explain or render the current Working Object. For
 example:
 
 ```text
@@ -195,8 +210,34 @@ example:
 🎯 Conversation → 🗺️ RECAP + 📊 DIAGRAMS
 ```
 
+```text
+/think-explain + /think-with-diagrams
+```
+
+`EXPLAIN` preserves the current result's claims and caveats. `DIAGRAMS` then
+adds the smallest useful visual.
+
+`/think-further` pushes the current object one grounded creative leap beyond
+what it already says. It marks the extrapolation instead of presenting it as
+established fact, and it does not choose a direction:
+
+```text
+/think-distill + /think-further
+```
+
 `/think-to-plan` turns an accepted or provisional direction into a plan for
 review. It does not authorize execution.
+
+`/think-explain` can consume the result of any HACP deck. For example:
+
+```text
+$work-this-way:work-implement
++ $think-it-through:think-explain
+```
+
+`IMPLEMENT` returns the observed implementation result. `EXPLAIN` turns that
+Working Object into a concise explanation without printing every intermediate
+step.
 
 ## Under the deck
 
@@ -205,14 +246,14 @@ methods, project rules, and tools still govern the substance and the available
 actions.
 
 The
-[Human-Agent Card Protocol](https://github.com/thevzion/human-agent-card-protocol)
-defines the shared rules beneath the deck: focus, composition, duration,
-clearing, and visible resolution.
+[Human-Agent Control Protocol](https://github.com/control-decks/human-agent-control-protocol)
+defines the shared rules beneath the deck: Binding, Working Object transfer,
+control state, duration, and visible resolution.
 
 | Layer | Owns |
 | --- | --- |
 | Think It Through | purpose, mental model, cards, and defaults |
-| HACP | card types, order, duration, and clearing |
+| HACP | Binding, object transfer, control state, order, and clearing |
 | Methods and project rules | reasoning and quality constraints |
 | Providers and tools | instruction loading, context, and actions |
 
@@ -222,9 +263,9 @@ clearing, and visible resolution.
 `/think-it-through` initializes the shared deck model. `/think-help` explains
 the deck. Neither is a card.
 
-### Move cards
+### Operation cards
 
-| Card | Play when | Default focus | Result | Duration |
+| Card | Play when | Default binding | Result | Duration |
 | --- | --- | --- | --- | --- |
 | [🧪 Distill](plugins/think-it-through/skills/think-distill/SKILL.md) | Thoughts need structure | Latest human message | Clear thoughts | One agent turn |
 | [💬 Discuss](plugins/think-it-through/skills/think-discuss/SKILL.md) | Exploration should stay open | Current thought | Developed thought | One agent turn |
@@ -233,8 +274,9 @@ the deck. Neither is a card.
 | [🗺️ Recap](plugins/think-it-through/skills/think-recap/SKILL.md) | Orientation is lost | Available conversation | Map and synthesis | One agent turn |
 | [🧭 Propose](plugins/think-it-through/skills/think-propose/SKILL.md) | An open question needs direction | Current open decision | One proposal | One agent turn |
 | [⚡ Next](plugins/think-it-through/skills/think-next/SKILL.md) | Action should follow | Latest actionable result | One to three actions | One agent turn |
+| [🚀 Further](plugins/think-it-through/skills/think-further/SKILL.md) | A useful idea should be pushed beyond its current edge | Current Working Object | One grounded creative extension | One agent turn |
 
-### Focus cards
+### Binding cards
 
 | Card | Chooses | Duration |
 | --- | --- | --- |
@@ -244,15 +286,16 @@ the deck. Neither is a card.
 
 ### Output cards
 
-| Card | Creates | Default focus |
+| Card | Creates | Default binding |
 | --- | --- | --- |
 | [📄 Brief](plugins/think-it-through/skills/think-to-brief/SKILL.md) | Portable thinking checkpoint | Available conversation |
 | [📋 Plan](plugins/think-it-through/skills/think-to-plan/SKILL.md) | Execution plan for review | Accepted or provisional direction |
 
-### Modifier cards
+### Presentation cards
 
-| Card | Adds | Default focus |
+| Card | Presents | Default binding |
 | --- | --- | --- |
+| [💡 Explain](plugins/think-it-through/skills/think-explain/SKILL.md) | Concise contextual explanation | Current Working Object |
 | [📊 Diagrams](plugins/think-it-through/skills/think-with-diagrams/SKILL.md) | Smallest useful visual | Final or latest useful result |
 | [🧠 Reasoning map](plugins/think-it-through/skills/think-with-reasoning-map/SKILL.md) | Supported reasoning structure | Final reasoning or current decision |
 
@@ -264,22 +307,22 @@ Start with an instruction you repeat:
 
 ```text
 repeated instruction
-→ define one effect and default focus
+→ define one effect and default binding
 → define result, duration, and limits
-→ test across subjects
+→ test positions and cross-deck transfer
 → keep, revise, merge, or remove
 ```
 
 A card contract records:
 
 ```text
-Use when → Default focus → Effect → Result
-→ Duration → Limits → Flow → Format
+Use when → Default binding → Accepts → Effect → Result
+→ Duration → Limits → Format
 ```
 
 A different deck can use the same interaction rules for another purpose and
 mental model. Share an instruction you repeat in a
-[GitHub issue](https://github.com/thevzion/think-it-through/issues).
+[GitHub issue](https://github.com/control-decks/think-it-through/issues).
 
 ## Origin and license
 

@@ -1,0 +1,216 @@
+{
+  "hacp": "0.3",
+  "deck": {
+    "id": "think-it-through",
+    "version": "0.11.0",
+    "publisher": "Control Decks"
+  },
+  "cards": [
+    {
+      "id": "think-it-through/on-conversation",
+      "command": "think-on-conversation",
+      "kind": "binding",
+      "mode": "select",
+      "traits": ["semantic"],
+      "defaultBinding": "available-conversation",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "hacp/binding",
+      "duration": "once",
+      "relations": {}
+    },
+    {
+      "id": "think-it-through/on-topic",
+      "command": "think-on-topic",
+      "kind": "binding",
+      "mode": "select",
+      "traits": ["semantic"],
+      "defaultBinding": "current-topic",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "hacp/binding",
+      "duration": "once",
+      "relations": {}
+    },
+    {
+      "id": "think-it-through/on-axis",
+      "command": "think-on-axis",
+      "kind": "binding",
+      "mode": "select",
+      "traits": ["semantic"],
+      "defaultBinding": "current-axis",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "hacp/binding",
+      "duration": "once",
+      "relations": {}
+    },
+    {
+      "id": "think-it-through/discuss",
+      "command": "think-discuss",
+      "kind": "operation",
+      "mode": "transform",
+      "traits": ["read-only", "semantic"],
+      "defaultBinding": "current-thought",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "think-it-through/developed-thought",
+      "duration": "once",
+      "relations": {}
+    },
+    {
+      "id": "think-it-through/distill",
+      "command": "think-distill",
+      "kind": "operation",
+      "mode": "transform",
+      "traits": ["read-only", "semantic"],
+      "defaultBinding": "latest-human-message",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "think-it-through/clarified-thought",
+      "duration": "once",
+      "relations": {
+        "references": ["think-it-through/propose"]
+      }
+    },
+    {
+      "id": "think-it-through/interview",
+      "command": "think-interview",
+      "kind": "operation",
+      "mode": "transform",
+      "traits": ["read-only", "semantic", "multi-exchange"],
+      "defaultBinding": "smallest-unclear-subject",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "think-it-through/shared-understanding",
+      "duration": "until-complete",
+      "relations": {}
+    },
+    {
+      "id": "think-it-through/grill",
+      "command": "think-grill",
+      "kind": "operation",
+      "mode": "transform",
+      "traits": ["read-only", "semantic", "multi-exchange"],
+      "defaultBinding": "current-testable-idea",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "think-it-through/verdict",
+      "duration": "until-complete",
+      "relations": {}
+    },
+    {
+      "id": "think-it-through/recap",
+      "command": "think-recap",
+      "kind": "operation",
+      "mode": "transform",
+      "traits": ["read-only", "semantic"],
+      "defaultBinding": "available-conversation",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "think-it-through/conversation-map",
+      "duration": "once",
+      "relations": {}
+    },
+    {
+      "id": "think-it-through/propose",
+      "command": "think-propose",
+      "kind": "operation",
+      "mode": "transform",
+      "traits": ["read-only", "semantic"],
+      "defaultBinding": "current-open-decision",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "think-it-through/proposal",
+      "duration": "once",
+      "relations": {
+        "references": [
+          "think-it-through/to-plan",
+          "reality-check/check-assumptions"
+        ]
+      }
+    },
+    {
+      "id": "think-it-through/next",
+      "command": "think-next",
+      "kind": "operation",
+      "mode": "transform",
+      "traits": ["read-only", "semantic"],
+      "defaultBinding": "latest-actionable-result",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "think-it-through/next-actions",
+      "duration": "once",
+      "relations": {}
+    },
+    {
+      "id": "think-it-through/further",
+      "command": "think-further",
+      "kind": "operation",
+      "mode": "transform",
+      "traits": ["read-only", "semantic", "creative-extension"],
+      "defaultBinding": "current-working-object",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "think-it-through/extended-thought",
+      "duration": "once",
+      "relations": {}
+    },
+    {
+      "id": "think-it-through/explain",
+      "command": "think-explain",
+      "kind": "presentation",
+      "mode": "render",
+      "traits": ["read-only", "semantic", "cross-deck"],
+      "defaultBinding": "current-working-object",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "think-it-through/explanation",
+      "duration": "once",
+      "relations": {
+        "references": ["work-this-way/implement"]
+      }
+    },
+    {
+      "id": "think-it-through/to-brief",
+      "command": "think-to-brief",
+      "kind": "operation",
+      "mode": "artifact",
+      "traits": ["read-only", "artifact"],
+      "defaultBinding": "available-conversation",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "think-it-through/thinking-brief",
+      "duration": "until-confirmed",
+      "relations": {}
+    },
+    {
+      "id": "think-it-through/to-plan",
+      "command": "think-to-plan",
+      "kind": "operation",
+      "mode": "artifact",
+      "traits": ["read-only", "artifact"],
+      "defaultBinding": "current-executable-direction",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "think-it-through/execution-plan",
+      "duration": "until-confirmed",
+      "relations": {
+        "references": [
+          "reality-check/check-targets",
+          "work-this-way/implement"
+        ]
+      }
+    },
+    {
+      "id": "think-it-through/with-diagrams",
+      "command": "think-with-diagrams",
+      "kind": "presentation",
+      "mode": "render",
+      "traits": ["read-only", "semantic"],
+      "defaultBinding": "current-working-object",
+      "accepts": ["hacp/result"],
+      "produces": "hacp/presentation",
+      "duration": "once",
+      "relations": {}
+    },
+    {
+      "id": "think-it-through/with-reasoning-map",
+      "command": "think-with-reasoning-map",
+      "kind": "presentation",
+      "mode": "render",
+      "traits": ["read-only", "semantic"],
+      "defaultBinding": "current-working-object",
+      "accepts": ["hacp/result"],
+      "produces": "hacp/presentation",
+      "duration": "once",
+      "relations": {}
+    }
+  ]
+}

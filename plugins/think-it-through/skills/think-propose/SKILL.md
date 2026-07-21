@@ -6,7 +6,8 @@ description: Put forward one strong direction for the current open question or d
 # 🧭 Think Propose
 
 **Use when:** Exploration has produced an open question that needs direction.
-**Default focus:** The current open question or decision.
+**Default binding:** The current open question or decision.
+**Accepts:** A compatible HACP Working Object or the declared default material.
 **Effect:** Evaluate viable directions, choose one, and expose why it fits, what it gives up, and where it can fail.
 **Result:** One strong proposal that the user can accept, reject, or refine.
 **Duration:** One agent turn.
@@ -28,6 +29,6 @@ If the user requests a lateral direction, choose one that changes the structure 
 
 ## Format
 
-Begin the combo trace with `> 🎯 **<focus>** → 🧭 **PROPOSE**`, followed by `Direction`, `Why`, `Tradeoff`, `Main risk`, and `Your call`.
+Begin the combo trace with `> 🎯 **<binding>** → 🧭 **PROPOSE**`, followed by `Direction`, `Why`, `Tradeoff`, `Main risk`, and `Your call`.
 
-Add later move cards or an output with `→` and modifiers with `+`; show the trace once for the complete combo.
+Add later operation cards or an output with `→` and presentation cards with `+`; show the trace once for the complete combo.

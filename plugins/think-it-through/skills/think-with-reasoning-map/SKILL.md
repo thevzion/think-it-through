@@ -6,7 +6,8 @@ description: Expose the reasoning structure in a result from the same combo or t
 # 🧠 Think With Reasoning Map
 
 **Use when:** The user needs to inspect how a claim, proposal, decision, or system holds together.
-**Default focus:** The final reasoning from the same combo, otherwise the current proposal or decision.
+**Default binding:** The final reasoning from the same combo, otherwise the current proposal or decision.
+**Accepts:** A compatible HACP Working Object or the declared default material.
 **Effect:** Extract stated claims, evidence, premises, assumptions, inferences, implications, and objections, then map supported links.
 **Result:** An argument map for a claim or a broader reasoning map for a decision or system.
 **Duration:** One final representation. It does not affect later responses.
@@ -27,6 +28,6 @@ flowchart LR
 
 ## Format
 
-Append `+ 🧠 **REASONING MAP**` to the complete combo trace. Used alone, begin with `> 🎯 **<focus>** + 🧠 **REASONING MAP**`.
+Append `+ 🧠 **REASONING MAP**` to the complete combo trace. Used alone, begin with `> 🎯 **<binding>** + 🧠 **REASONING MAP**`.
 
 Use labels that distinguish claims, evidence, assumptions, inferences, and objections.

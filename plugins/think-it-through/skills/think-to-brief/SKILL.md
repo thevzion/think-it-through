@@ -6,7 +6,8 @@ description: Turn the full available conversation or a result from the same comb
 # 📄 Think To Brief
 
 **Use when:** The user wants to preserve thinking for reuse in this session, another session, or another tool.
-**Default focus:** The full available conversation, the same focus as `/think-on-conversation` when used alone. A result supplied by a combo takes priority.
+**Default binding:** The full available conversation, the same Binding as `/think-on-conversation` when used alone. A result supplied by a combo takes priority.
+**Accepts:** A compatible HACP Working Object or the declared default material.
 **Effect:** Use the canonical map or supplied result to verify coverage, infer a useful document form and audience, then use the subject's vocabulary and the audience's expected structure.
 **Result:** A portable Markdown checkpoint that covers the relevant material, with purpose, overall synthesis, decisions, tensions, open questions, and where to resume when useful.
 **Duration:** One output flow, including any required confirmation.
@@ -16,7 +17,7 @@ description: Turn the full available conversation or a result from the same comb
 
 ```mermaid
 flowchart TD
-    A["Final result or default focus"] --> B["Verify coverage and choose document form"]
+    A["Final result or default binding"] --> B["Verify coverage and choose document form"]
     B --> C{"Destination?"}
     C -->|None| D["Return Markdown inline"]
     C -->|Inferred| E["Show creation preview"]
@@ -32,6 +33,6 @@ Follow an applicable method or project convention; otherwise use portable Markdo
 
 ## Format
 
-Add `→ 📄 **BRIEF**` after the final move in the combo trace, or begin with `> 🎯 **<focus>** → 📄 **BRIEF**` when used alone. Add modifiers with `+`.
+Add `→ 📄 **BRIEF**` after the final move in the combo trace, or begin with `> 🎯 **<binding>** → 📄 **BRIEF**` when used alone. Add presentation cards with `+`.
 
 Keep that trace in the conversational envelope, outside the brief. Show status only while awaiting confirmation or overwrite permission. A later session resumes only when the user supplies the brief or its content.

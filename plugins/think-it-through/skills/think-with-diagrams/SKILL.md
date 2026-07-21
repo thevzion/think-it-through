@@ -6,7 +6,8 @@ description: Add the smallest useful diagram to a result from the same combo or 
 # 📊 Think With Diagrams
 
 **Use when:** Existing relationships would be easier to understand as a visual structure.
-**Default focus:** The final result from the same combo, otherwise the latest substantive result or focus.
+**Default binding:** The final result from the same combo, otherwise the latest substantive result or Binding.
+**Accepts:** A compatible HACP Working Object or the declared default material.
 **Effect:** Identify the relationship worth compressing, choose the smallest useful form, and represent it without changing the substance.
 **Result:** A flow, tree, timeline, matrix, table, or Mermaid diagram tied to the existing content.
 **Duration:** One final representation. It does not affect later responses.
@@ -26,6 +27,6 @@ flowchart LR
 
 ## Format
 
-Append `+ 📊 **DIAGRAMS**` to the complete combo trace. Used alone, begin with `> 🎯 **<focus>** + 📊 **DIAGRAMS**`.
+Append `+ 📊 **DIAGRAMS**` to the complete combo trace. Used alone, begin with `> 🎯 **<binding>** + 📊 **DIAGRAMS**`.
 
 Place each diagram beside the content it clarifies.

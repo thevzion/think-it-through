@@ -1,12 +1,13 @@
 ---
 name: think-next
-description: Recommend the next one to three concrete actions with the highest leverage for the latest actionable result or current focus. Use only when the user invokes think-next or asks what to do next; never redirect or act silently.
+description: Recommend the next one to three concrete actions with the highest leverage for the latest actionable result or current Binding. Use only when the user invokes think-next or asks what to do next; never redirect or act silently.
 ---
 
 # ⚡ Think Next
 
 **Use when:** The user has enough clarity to continue but needs the highest-leverage next step.
-**Default focus:** The latest actionable result, otherwise the current focus.
+**Default binding:** The latest actionable result, otherwise the current Binding.
+**Accepts:** A compatible HACP Working Object or the declared default material.
 **Effect:** Recover the current stage and dependencies, identify the bottleneck, then rank concrete actions by leverage.
 **Result:** One to three actions with expected outcomes.
 **Duration:** One agent turn.
@@ -16,7 +17,7 @@ description: Recommend the next one to three concrete actions with the highest l
 
 ```mermaid
 flowchart LR
-    A["Actionable result or focus"] --> B["Recover stage and dependencies"]
+    A["Actionable result or Binding"] --> B["Recover stage and dependencies"]
     B --> C["Find highest-leverage bottleneck"]
     C --> D["Rank possible actions"]
     D --> E["Select one to three"]
@@ -28,6 +29,6 @@ Prefer a reversible learning step when uncertainty is high.
 
 ## Format
 
-Begin the combo trace with `> 🎯 **<focus>** → ⚡ **NEXT**`, followed by one to three `Next actions` ordered by leverage.
+Begin the combo trace with `> 🎯 **<binding>** → ⚡ **NEXT**`, followed by one to three `Next actions` ordered by leverage.
 
-Add an output with `→` and modifiers with `+`; show the trace once for the complete combo.
+Add an output with `→` and presentation cards with `+`; show the trace once for the complete combo.

@@ -6,7 +6,8 @@ description: Explore and deepen the thought currently being expressed as an acti
 # 💬 Think Discuss
 
 **Use when:** The user wants a thinking partner without a forced outcome.
-**Default focus:** The thought currently being expressed.
+**Default binding:** The thought currently being expressed.
+**Accepts:** A compatible HACP Working Object or the declared default material.
 **Effect:** Develop its implications, connections, tensions, language, or examples.
 **Result:** A direct response that develops the thought while preserving useful ambiguity.
 **Duration:** One agent turn. Play it again whenever exploration should continue.
@@ -27,6 +28,6 @@ flowchart LR
 
 ## Format
 
-Begin the combo trace with `> 🎯 **<focus>** → 💬 **DISCUSS**`, then respond naturally without forced section headings.
+Begin the combo trace with `> 🎯 **<binding>** → 💬 **DISCUSS**`, then respond naturally without forced section headings.
 
-Add later move cards or an output with `→` and modifiers with `+`; show the trace once for the complete combo.
+Add later operation cards or an output with `→` and presentation cards with `+`; show the trace once for the complete combo.

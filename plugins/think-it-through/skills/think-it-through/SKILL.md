@@ -5,78 +5,93 @@ description: Supply the shared Think It Through deck rules and mental model when
 
 # 🧩 Think It Through Deck
 
-Treat this as the deck's shared skill, not as a card. It embeds the Human-Agent Card Protocol rules needed to resolve the deck without a remote dependency.
+Treat this as the deck's shared skill, not as a card. Embed the minimum HACP
+Draft 0.3 resolver so the deck works without the optional HACP plugin.
 
 ## Deck model
 
-- **Context:** Use the full relevant conversation and supplied material, including briefs or other checkpoints.
-- **Focus:** Resolve what the combo works on while retaining relevant context outside it.
-- **Map:** Maintain `Conversation → Topics → Axes` silently as the available context allows. Reconstruct it when needed. Use short human labels; axes may be active, paused, resolved, or replaced.
-- **Method:** Follow explicit user instructions first. Let domain methods, skills, project conventions, and templates govern substance, criteria, and document structure.
-- **State:** Do not claim unavailable history, hidden state, synchronization, or cross-session memory.
+- **Context:** Use the relevant conversation and supplied checkpoints.
+- **Binding:** Resolve what the combo works on: conversation, topic, axis,
+  current thought, or current result.
+- **Map:** Maintain `Conversation → Topics → Axes` silently when useful. Use
+  short human labels. Reconstruct the map from available context.
+- **Working Object:** Pass each visible result to the next card, including a
+  card from another HACP deck.
+- **State:** Keep the Think mental model local. Share only the Working Object,
+  Binding, and active HACP controls.
 
-## HACP resolution
+## Ordered resolution
 
-Use these terms consistently:
+Read prose and explicit cards as one ordered stream. Position carries meaning:
+a leading card acts on following material or the available object; a card after
+prose consumes that prose; a card between blocks transforms the object at that
+point.
+
+Before applying an effect:
+
+1. resolve every played card and its position;
+2. validate inputs, outputs, relations, and active controls;
+3. reject the full stream without effects when it is invalid;
+4. never reorder cards or play a hidden card.
+
+Think cards map to HACP roles:
 
 ```text
-human turn → user message with zero or more played cards
-agent turn → one response that resolves their effects
-exchange   → one human turn and its agent turn
-command    → slash syntax used to play a card
-card       → explicit contract with one effect
-deck       → this shared skill and its 14 cards
-combo      → cards resolved together
-effect     → transformation or control a card applies
-clear      → stop applying an effect to later turns
+think-on-*              → binding
+thinking moves          → operation
+think-to-brief / plan   → operation:artifact
+think-explain / with-*  → presentation
 ```
 
-Resolve a combo in semantic order:
+Resolve operations in written order. Pass the Working Object across deck
+boundaries automatically. Binding cards set the Binding at their position. Apply
+presentation cards to the current final object without changing its substance.
 
-```text
-FOCUS? → MOVE* → OUTPUT? → MODIFIER*
-```
+## Outcomes and controls
 
-- Let one focus card choose the focus for the whole combo, then clear it.
-- Without a focus card, resolve the first card's `Default focus` directly. Do not play a hidden focus card.
-- Run move cards from left to right and pass each result to the next without an intermediate response.
-- Let at most one output create an artifact from the final result or its own default.
-- Apply all modifiers to that same final result. Change its representation without changing its substance.
-- Before applying any effect, ask one clarification when focus cards or outputs conflict.
+- Pass `success` and compatible `blocked` results to later cards.
+- Preserve `pending` while approval is missing.
+- Defer cards that need the completed pending result, then resume them after
+  approval.
+- Apply active controls before tools or domain effects.
+- Let blocking controls win over approval controls.
+- Show persistent controls on every governed response.
 
-## Duration and display
+The deck never grants authority to mutate, browse, persist, or contact anyone.
+Those actions remain governed by the user request, higher instructions, tools,
+and active controls.
 
-- A one-shot move lasts one agent turn.
-- Interview and grill remain in play across exchanges until complete or interrupted.
-- A focus card lasts one combo, including any multi-exchange loop it starts.
-- An output lasts through its creation and confirmation flow.
-- A modifier lasts for one final representation.
-- Clearing an effect stops its behavior; it does not remove available instructions or context.
-- The user may play cards on successive turns. Resolve each play explicitly; never repeat a cleared effect from cadence or prior turns.
-- Without a played card, respond normally. Never play a move silently.
-- Show the resolved focus and played cards in one complete trace when a combo starts, including when the focus came from a default. During an interview or grill, use the card's compact continuation badge on later turns. Keep natural conversation silent.
-- Treat traces and HACP vocabulary as control metadata. Keep them outside artifact bodies unless Think It Through or HACP is the subject, or the user asks for them.
-- When loaded with a card or `think-help`, add no trace or response of your own.
+`think-further` extends the current object by one grounded creative leap. It
+must not silently become broad ideation, a proposal, or a list of next actions.
+
+## Duration
+
+One-shot cards clear after one agent turn. Interview and Grill stay active
+until complete, stopped, or redirected. A Binding lasts for its combo,
+including a multi-exchange loop. Outputs last through their confirmation flow.
+
+Never repeat a cleared effect from cadence. Without a played card, respond
+normally and show no HACP trace.
+
+## Display
+
+Show one complete trace when a combo starts. Show compact continuation badges
+for later Interview or Grill turns. Keep traces and active-control lines outside
+artifact bodies.
+
+Return the minimum sufficient final result. Do not print intermediate results
+or explain HACP unless HACP is the subject.
+
+When loaded with a card or `think-help`, add no trace or response of your own.
 
 ## Help
 
-Treat `think-help` as the deck's utility, never as a card. It may explain the deck or recommend normal conversation, a card, or a combo. It must not play a card, change focus, or recommend domain actions.
+Treat `think-help` as a utility. It may explain the deck or recommend normal
+conversation, one card, or a combo. It never plays a card or recommends domain
+actions.
 
-## Resolution flow
-
-```mermaid
-flowchart LR
-    A["Deck or card invoked"] --> B["Recover context and map"]
-    B --> C{"Card played?"}
-    C -->|Yes| D["Resolve focus and effects"]
-    C -->|No| E["Initialize deck"]
-    D --> F["Return one trace and result"]
-```
-
-## Initialization format
+## Initialization
 
 When invoked alone, respond only:
 
-`> 🧩 **THINK IT THROUGH** · Deck initialized · Context: available conversation · Focus: <resolved focus>`
-
-Use `multiple active axes` for several branches of one topic and `multiple active topics` for several major subjects. Do not ask the user to choose an artificial single focus.
+`> 🧩 **THINK IT THROUGH** · Deck initialized · Binding: <resolved binding> · Working Object: <available result or human message>`
