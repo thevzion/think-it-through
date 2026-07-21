@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · Next"
+  short_description: "Choose the highest-leverage next actions"
+  default_prompt: "Use $next to identify the highest-leverage next actions."

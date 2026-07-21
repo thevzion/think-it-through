@@ -32,7 +32,7 @@ respond. I kept rewriting that second paragraph as the subject changed.
 The product may be a method, an interface, and a protocol. Some of those ideas
 overlap, but perhaps I am forcing them together.
 
-/think-distill
+/distill
 ```
 
 ![Two collaborators face a hydra made of tangled instructions](assets/think-it-through-card-loop.gif)
@@ -49,7 +49,7 @@ next exchange. Without a card, the agent gives its usual response.
 The product may be a method, an interface, and a protocol. Some of those ideas
 overlap, but perhaps I am forcing them together.
 
-/think-distill
+/distill
 ```
 
 **Agent**
@@ -86,8 +86,8 @@ codex plugin marketplace add control-decks/think-it-through
 codex plugin add think-it-through@think-it-through
 ```
 
-Use `$think-it-through:think-help` or play
-`$think-it-through:think-distill`.
+Use `$think-it-through:help` or play
+`$think-it-through:distill`.
 
 ### Claude Code
 
@@ -96,10 +96,10 @@ claude plugin marketplace add control-decks/think-it-through --scope user
 claude plugin install think-it-through@think-it-through --scope user
 ```
 
-Use `/think-it-through:think-help` or play
-`/think-it-through:think-distill`.
+Use `/think-it-through:help` or play
+`/think-it-through:distill`.
 
-The examples below use the portable shorthand `/think-*`.
+The examples below use the portable shorthand `/<card>`.
 
 ## Start with six cards
 
@@ -108,12 +108,12 @@ captures one of them.
 
 | When your thinking needs... | Play | The agent will... |
 | --- | --- | --- |
-| structure | [🧪 `DISTILL`](plugins/think-it-through/skills/think-distill/SKILL.md) | separate and clarify the thought |
-| room to develop | [💬 `DISCUSS`](plugins/think-it-through/skills/think-discuss/SKILL.md) | explore without forcing a conclusion |
-| an explanation | [💡 `EXPLAIN`](plugins/think-it-through/skills/think-explain/SKILL.md) | explain without changing the claims or choosing a direction |
-| pressure | [🔥 `GRILL`](plugins/think-it-through/skills/think-grill/SKILL.md) | test one weak branch per exchange |
-| orientation | [🗺️ `RECAP`](plugins/think-it-through/skills/think-recap/SKILL.md) | recover a map and synthesis |
-| a direction | [🧭 `PROPOSE`](plugins/think-it-through/skills/think-propose/SKILL.md) | offer one choice with its tradeoff and risk |
+| structure | [🧪 `DISTILL`](plugins/think-it-through/skills/distill/SKILL.md) | separate and clarify the thought |
+| room to develop | [💬 `DISCUSS`](plugins/think-it-through/skills/discuss/SKILL.md) | explore without forcing a conclusion |
+| an explanation | [💡 `EXPLAIN`](plugins/think-it-through/skills/explain/SKILL.md) | explain without changing the claims or choosing a direction |
+| pressure | [🔥 `GRILL`](plugins/think-it-through/skills/grill/SKILL.md) | test one weak branch per exchange |
+| orientation | [🗺️ `RECAP`](plugins/think-it-through/skills/recap/SKILL.md) | recover a map and synthesis |
+| a direction | [🧭 `PROPOSE`](plugins/think-it-through/skills/propose/SKILL.md) | offer one choice with its tradeoff and risk |
 
 Repeat a card, switch cards, or return to normal conversation as the thought
 changes.
@@ -122,7 +122,7 @@ You can play a card without writing another prompt. If a long session has lost
 its shape, send:
 
 ```text
-/think-recap
+/recap
 ```
 
 The card uses the conversation as its default Binding. Reusing these
@@ -137,8 +137,8 @@ Cards pass their results from left to right:
 ```text
 The product may be a method, an interface, and a protocol.
 
-/think-distill
-+ /think-propose
+/distill
++ /propose
 ```
 
 ```text
@@ -156,7 +156,7 @@ Some cards need more than one exchange:
 ```text
 I think the interface should be the first product.
 
-/think-grill
+/grill
 ```
 
 ```text
@@ -189,13 +189,13 @@ The six-card starter hand covers the main thinking loop. Ten advanced cards
 let you choose the Binding, gather missing information, recommend actions,
 extend an idea, create an artifact, or change its presentation.
 
-`/think-help` explains the deck and gives exact commands without playing a
+`/help` explains the deck and gives exact commands without playing a
 card:
 
 ```text
-/think-help
-/think-help distill
-/think-help "I need to choose a direction"
+/help
+/help distill
+/help "I need to choose a direction"
 ```
 
 Binding cards target a conversation, topic, or axis. Output cards create a brief
@@ -203,7 +203,7 @@ or plan. Presentation cards explain or render the current Working Object. For
 example:
 
 ```text
-/think-recap + /think-with-diagrams
+/recap + /with-diagrams
 ```
 
 ```text
@@ -211,28 +211,28 @@ example:
 ```
 
 ```text
-/think-explain + /think-with-diagrams
+/explain + /with-diagrams
 ```
 
 `EXPLAIN` preserves the current result's claims and caveats. `DIAGRAMS` then
 adds the smallest useful visual.
 
-`/think-further` pushes the current object one grounded creative leap beyond
+`/further` pushes the current object one grounded creative leap beyond
 what it already says. It marks the extrapolation instead of presenting it as
 established fact, and it does not choose a direction:
 
 ```text
-/think-distill + /think-further
+/distill + /further
 ```
 
-`/think-to-plan` turns an accepted or provisional direction into a plan for
+`/to-plan` turns an accepted or provisional direction into a plan for
 review. It does not authorize execution.
 
-`/think-explain` can consume the result of any HACP deck. For example:
+`/explain` can consume the result of any HACP deck. For example:
 
 ```text
-$work-this-way:work-implement
-+ $think-it-through:think-explain
+$work-this-way:implement
++ $think-it-through:explain
 ```
 
 `IMPLEMENT` returns the observed implementation result. `EXPLAIN` turns that
@@ -260,44 +260,44 @@ control state, duration, and visible resolution.
 <details>
 <summary><strong>Complete card reference</strong></summary>
 
-`/think-it-through` initializes the shared deck model. `/think-help` explains
-the deck. Neither is a card.
+The `deck` support skill initializes the shared deck model. `help` explains the
+deck. Neither is a card.
 
 ### Operation cards
 
 | Card | Play when | Default binding | Result | Duration |
 | --- | --- | --- | --- | --- |
-| [🧪 Distill](plugins/think-it-through/skills/think-distill/SKILL.md) | Thoughts need structure | Latest human message | Clear thoughts | One agent turn |
-| [💬 Discuss](plugins/think-it-through/skills/think-discuss/SKILL.md) | Exploration should stay open | Current thought | Developed thought | One agent turn |
-| [🔎 Interview](plugins/think-it-through/skills/think-interview/SKILL.md) | Understanding is missing | Smallest unclear subject | Shared understanding | Multiple exchanges |
-| [🔥 Grill](plugins/think-it-through/skills/think-grill/SKILL.md) | An idea needs pressure | Current testable idea | Verdict and risks | Multiple exchanges |
-| [🗺️ Recap](plugins/think-it-through/skills/think-recap/SKILL.md) | Orientation is lost | Available conversation | Map and synthesis | One agent turn |
-| [🧭 Propose](plugins/think-it-through/skills/think-propose/SKILL.md) | An open question needs direction | Current open decision | One proposal | One agent turn |
-| [⚡ Next](plugins/think-it-through/skills/think-next/SKILL.md) | Action should follow | Latest actionable result | One to three actions | One agent turn |
-| [🚀 Further](plugins/think-it-through/skills/think-further/SKILL.md) | A useful idea should be pushed beyond its current edge | Current Working Object | One grounded creative extension | One agent turn |
+| [🧪 Distill](plugins/think-it-through/skills/distill/SKILL.md) | Thoughts need structure | Latest human message | Clear thoughts | One agent turn |
+| [💬 Discuss](plugins/think-it-through/skills/discuss/SKILL.md) | Exploration should stay open | Current thought | Developed thought | One agent turn |
+| [🔎 Interview](plugins/think-it-through/skills/interview/SKILL.md) | Understanding is missing | Smallest unclear subject | Shared understanding | Multiple exchanges |
+| [🔥 Grill](plugins/think-it-through/skills/grill/SKILL.md) | An idea needs pressure | Current testable idea | Verdict and risks | Multiple exchanges |
+| [🗺️ Recap](plugins/think-it-through/skills/recap/SKILL.md) | Orientation is lost | Available conversation | Map and synthesis | One agent turn |
+| [🧭 Propose](plugins/think-it-through/skills/propose/SKILL.md) | An open question needs direction | Current open decision | One proposal | One agent turn |
+| [⚡ Next](plugins/think-it-through/skills/next/SKILL.md) | Action should follow | Latest actionable result | One to three actions | One agent turn |
+| [🚀 Further](plugins/think-it-through/skills/further/SKILL.md) | A useful idea should be pushed beyond its current edge | Current Working Object | One grounded creative extension | One agent turn |
 
 ### Binding cards
 
 | Card | Chooses | Duration |
 | --- | --- | --- |
-| [🎯 Conversation](plugins/think-it-through/skills/think-on-conversation/SKILL.md) | All available topics and axes | One combo |
-| [🎯 Topic](plugins/think-it-through/skills/think-on-topic/SKILL.md) | One topic | One combo |
-| [🎯 Axis](plugins/think-it-through/skills/think-on-axis/SKILL.md) | One axis | One combo |
+| [🎯 Conversation](plugins/think-it-through/skills/on-conversation/SKILL.md) | All available topics and axes | One combo |
+| [🎯 Topic](plugins/think-it-through/skills/on-topic/SKILL.md) | One topic | One combo |
+| [🎯 Axis](plugins/think-it-through/skills/on-axis/SKILL.md) | One axis | One combo |
 
 ### Output cards
 
 | Card | Creates | Default binding |
 | --- | --- | --- |
-| [📄 Brief](plugins/think-it-through/skills/think-to-brief/SKILL.md) | Portable thinking checkpoint | Available conversation |
-| [📋 Plan](plugins/think-it-through/skills/think-to-plan/SKILL.md) | Execution plan for review | Accepted or provisional direction |
+| [📄 Brief](plugins/think-it-through/skills/to-brief/SKILL.md) | Portable thinking checkpoint | Available conversation |
+| [📋 Plan](plugins/think-it-through/skills/to-plan/SKILL.md) | Execution plan for review | Accepted or provisional direction |
 
 ### Presentation cards
 
 | Card | Presents | Default binding |
 | --- | --- | --- |
-| [💡 Explain](plugins/think-it-through/skills/think-explain/SKILL.md) | Concise contextual explanation | Current Working Object |
-| [📊 Diagrams](plugins/think-it-through/skills/think-with-diagrams/SKILL.md) | Smallest useful visual | Final or latest useful result |
-| [🧠 Reasoning map](plugins/think-it-through/skills/think-with-reasoning-map/SKILL.md) | Supported reasoning structure | Final reasoning or current decision |
+| [💡 Explain](plugins/think-it-through/skills/explain/SKILL.md) | Concise contextual explanation | Current Working Object |
+| [📊 Diagrams](plugins/think-it-through/skills/with-diagrams/SKILL.md) | Smallest useful visual | Final or latest useful result |
+| [🧠 Reasoning map](plugins/think-it-through/skills/with-reasoning-map/SKILL.md) | Supported reasoning structure | Final reasoning or current decision |
 
 </details>
 

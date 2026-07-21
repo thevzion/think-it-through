@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · Discuss"
+  short_description: "Explore a thought without forcing a conclusion"
+  default_prompt: "Use $discuss to explore this thought without forcing a conclusion."

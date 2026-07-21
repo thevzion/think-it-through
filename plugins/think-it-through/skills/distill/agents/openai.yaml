@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · Distill"
+  short_description: "Clarify fragmented or tangled thoughts"
+  default_prompt: "Use $distill to clarify these tangled thoughts."

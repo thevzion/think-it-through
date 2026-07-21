@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · On Conversation"
+  short_description: "Bind a combo to the available conversation"
+  default_prompt: "Use $on-conversation to apply this combo to the available conversation."

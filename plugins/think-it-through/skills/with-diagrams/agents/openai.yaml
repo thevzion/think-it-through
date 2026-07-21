@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · With Diagrams"
+  short_description: "Add the smallest useful explanatory diagram"
+  default_prompt: "Use $with-diagrams to add the smallest useful diagram."

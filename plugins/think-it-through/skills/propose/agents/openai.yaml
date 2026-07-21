@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · Propose"
+  short_description: "Offer one direction with tradeoff and risk"
+  default_prompt: "Use $propose to offer one strong direction."

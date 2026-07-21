@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · To Brief"
+  short_description: "Create a reusable brief from the thinking"
+  default_prompt: "Use $to-brief to turn this thinking into a reusable brief."

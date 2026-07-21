@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · Grill"
+  short_description: "Stress-test an idea through focused pressure"
+  default_prompt: "Use $grill to stress-test this proposal."

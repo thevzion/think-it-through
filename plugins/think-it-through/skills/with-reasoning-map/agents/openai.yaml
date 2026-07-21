@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through · With Reasoning Map"
+  short_description: "Expose the supported reasoning structure"
+  default_prompt: "Use $with-reasoning-map to expose the supported reasoning structure."
